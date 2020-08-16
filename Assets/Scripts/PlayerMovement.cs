@@ -1,14 +1,14 @@
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    private Rigidbody2D rb;
-    private Vector2 movement;
+    private Rigidbody rb;
+    private Vector3 movement;
     private bool isDead = false;
 
     public float speed = 5;
 
     private void Start() {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update() {
@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour {
         float ix = Input.GetAxisRaw("Horizontal");
         float iy = Input.GetAxisRaw("Vertical");
 
-        movement = new Vector2(ix, iy);
+        movement = new Vector3(ix, 0, iy);
     }
 
     private void FixedUpdate() {
@@ -26,6 +26,6 @@ public class PlayerMovement : MonoBehaviour {
 
     public void Kill() {
         isDead = true;
-        rb.velocity = Vector2.zero;
+        rb.velocity = Vector3.zero;
     }
 }

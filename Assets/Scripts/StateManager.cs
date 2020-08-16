@@ -11,9 +11,6 @@ public class StateManager : MonoBehaviour {
     private void Update() {
     }
 
-    void OnTriggerExit2D(Collider2D other) {
-        if (other.gameObject.tag == "Ground") {
-            GetComponent<PlayerMovement>().Kill();
-        }
+    void OnTriggerExit(Collider other) {
     }
 }
